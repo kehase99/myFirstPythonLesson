@@ -7,14 +7,20 @@
 
 x = 5
 y = 10
-
 Sum = x + y 
+
 print(Sum)
+
 diff = y - x
+
 print(diff)
+
 product = x * y 
+
 print(product)
+
 Quotient = y / x
+
 print(Quotient)
 
 
@@ -24,8 +30,10 @@ print(Quotient)
 #    c) Print the first and last elements of the list.
 
 fruits = ["apple", "banana", "cherry"]
+
 fruits.append("orange")
 fruits.remove("banana")
+
 print(fruits[0], fruits[-1])
 
 # 3. Define a set of numbers containing 1, 2, 3, 4, and 5.
@@ -34,12 +42,15 @@ print(fruits[0], fruits[-1])
 #    c) Check if the numbers 5 and 7 are in the set, and print the results.
 
 numbers_set = {1, 2, 3, 4, 5}
+
 numbers_set.add(6)
 numbers_set.remove(3)
+
 if 5 and 7 in numbers_set:
     print("yes, 5 and 7 are a member of the group")
 else:
     print("no, they are not")
+
 """
 num5 = [5]
 num7 = [7]
@@ -52,7 +63,10 @@ print(check7)
 #    a) Print the x (first) and y (second) coordinates separately.
 
 coordinates = (10.5, 20.7)
-print(coordinates[0], coordinates[1])
+x, y = coordinates 
+
+print(x)
+print(y)
 
 # 5. Define a dictionary of student grades, where:
 #    - "Alice" has a grade of 85
@@ -65,6 +79,7 @@ print(coordinates[0], coordinates[1])
 grades = {"Alice": 85, "Bob": 90, "Charlie": 78}
 #grades["David"] = 88 # it works or
 grades.update({"David": 88})
+
 print(grades)
 
 # 6. Define a variable called `age` with a value of 18.
@@ -93,8 +108,10 @@ for i in range(0, len(fruits), 1):
 #    a) Use a `while` loop to print a countdown from 5 to 1.
 
 count = 5
+
 while count > 0:
     print(count)
+
     count = count -1
 
 # 9. Challenge: Combine lists, sets, dictionaries, and loops.
@@ -103,8 +120,10 @@ while count > 0:
 #    c) Create a dictionary that maps each even number to its square.
 #    d) Print the set of even numbers and the dictionary.
 print("--------------------9b)----------------------------")
+
 numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 even_numbers=[]
+
 for i in numbers:
    if i % 2 == 0:
     even_numbers.append(i)
@@ -139,12 +158,15 @@ print(even_number_dict)
 # coordinates (tuple) -> list
 print("------------------------convert list to set---------------------------")
 set_of_fruits = set(fruits)
+
 print(set_of_fruits)
 print("------------------------convert set to tuple---------------------------")
 tuple_even_nambers= tuple(even_number_set)
+
 print(tuple_even_nambers)
 print("------------------------convert tuple to list---------------------------")
 tuple_to_list = list(tuple_even_nambers)
+
 print(tuple_to_list)
 
 # 11. Dictionary Keys and Values
@@ -159,11 +181,13 @@ print(tuple_to_list)
 
 #grades = {"Alice": 85, "Bob": 90, "Charlie": 78}
 print("----------------11.--------------------")
-keys = grades.keys()
-values = grades.values()
+keys = list(grades.keys())
+values = list(grades.values())
+
 print(keys)
 print(values)
 print("----------------11c--------------------")
+
 for keys, values in zip(keys, values):
     print(keys,":",values)
 
