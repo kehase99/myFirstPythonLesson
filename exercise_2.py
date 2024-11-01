@@ -4,21 +4,44 @@
 # Challenge 1: Define a function that takes a list of numbers and returns a new list containing only the even numbers.
 # The function should use list comprehension.
 print("-----------------------1 even-----------------------")
-def even_numbers(i):
-    even_number_list=[x for  x in i if x % 2 == 0]
-    return even_number_list
-
-def odd_numbers(x):
-    odd_number_list = [i for i in range(0, len(x), 1) if i % 2 != 0]
-    print(odd_number_list) 
-
+#def even_numbers(i):
+    #even_number_list=[x for  x in i if x % 2 == 0]
+   # return even_number_list
 list_of_numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+print(list_of_numbers[2:12])
 
-print(even_numbers(list_of_numbers))
+def even_numbers(num):
+    result = []
+    for x in num:
+        print(x)
+        if x % 2 == 0: # != not equal == equal 2 === 2
+            result.append(x)
+    print(result)
+
+    for x in range(0, 12, 2): # <
+        print(num[x])
+
+
+
+#def odd_numbers(x):
+    #odd_number_list = [i for i in range(0, len(x), 1) if i % 2 != 0]
+    #print(odd_number_list) 
+print("-----------------------while start-----------------------")
+#i = 0
+
+#while i < 10:
+   # i=i+1
+  #  print(i)
+    
+print("-----------------------while end-----------------------")
+even_numbers(list_of_numbers)
+
+
+#print(only_even)
 
 print("-----------------------1 odd-----------------------")
 
-odd_numbers(list_of_numbers)
+#odd_numbers(list_of_numbers)
 #even_number_list=[i for  i in list_of_numbers if i % 2 == 0]
 #odd_number_list = [x for x in range(0, len(list_of_numbers), 1) if x % 2 != 0]
 #print(even_number_list) # [2, 4, 6, 8, 10, 12]
@@ -27,13 +50,27 @@ odd_numbers(list_of_numbers)
 # Challenge 2: Define a function that takes a list of strings and returns a new list with the strings that have more than 5 characters.
 # Use list comprehension for filtering.
 print("-----------------------2-----------------------")
+'''
 def select_names(name):
     name_has_6ormore_carcter = [fname for fname in name if len(fname) > 5]
     print(name_has_6ormore_carcter)
+'''
+def select_students(student):
+    result_student = []
+    for fname in student:
+       # print(fname)
+        if len(fname) > 5:
+            result_student.append(fname)
+    print(result_student)
+
 
 students = ["Hans","Tom", "jerry", "seinfeld", "Gebrekidan", "Hagos", "Gebrehans", "Antonios", "Jen", "Christian"]
+x = len(students[3])
+print(x)
 
-select_names(students)
+select_students(students)
+#select_names(students)
+
 # Challenge 3: Write a function that takes a list of integers and returns a list of their squares.
 # Use list comprehension to achieve this.
 print("-----------------------3-----------------------")
@@ -98,8 +135,18 @@ print(myList)
 '''
 # Challenge 6: Define a function that filters out words from a list that do not start with a vowel.
 # Use list comprehension and a helper function that checks if a word starts with a vowel.
-
+print("-----------------------6-----------------------")
 def func_filter_vowls(filters):
+    #filter_the_words = filters.split()
+    result = []
+    vowles = tuple("aeiouAEIOU")
+    #print(vowles)
+    for words in filters:
+        #words.lower() == words.upper()
+        if words.startswith(vowles) == True:
+            result.append(words)
+    return result
+    '''
     filter_the_words = filters.split()
     result = []
     vowles = tuple("aeiouAEIOU")
@@ -109,14 +156,17 @@ def func_filter_vowls(filters):
         if words.startswith(vowles) == False:
             result.append(words)
     return result
+    '''
+  
 
 
-
-filter_the_vowels = input("give any words in a sentence: ")
+filter_wowls = ["apple", "kiwi", "orange", "lemon", "banana", "Olive"]
+#filter_the_vowels = input("give any words in a sentence: ")
 #filter_for_test = ["kehase", "teklay", "Michael", "oliver", "anton", "urlich", "imely", "Emenm", "Hans"]
-print(func_filter_vowls(filter_the_vowels))
+print(func_filter_vowls(filter_wowls))
 # Challenge 7: Write a function that takes a list of numbers and returns a list of booleans indicating whether each number is greater than 10.
 # Use list comprehension for this task.
+print("-----------------------7-----------------------")
 def filter_numbers(numbers):
     result_num = [num for num in numbers if num > 10]
     return result_num
@@ -127,8 +177,48 @@ print(filter_numbers(list_numbers))
 # Challenge 8: Create a function that takes a list of dictionaries and returns a list of the values for a given key.
 # Use list comprehension to extract the values.
 
+print("-----------------------8-----------------------")
+def extract(li_dict):
+    your_key = input("give your key in sting: ")
+    result = []
+    
+    for x in li_dict:
+        for key, value in x.items():
+            if key == your_key:
+                result.append(f"{value}")
+    return result
+    
+    '''
+    for x in li_dict:
+        result = [result.append(value) for key, value in x.items() if key == your_key]
+                
+    return result
+    '''
+list_of_dict = [
+
+    {
+       "name":  "John",
+       "age" : 30,
+       "city": "Berlin"
+    },
+    {
+        "name": "Chris",
+        "age" : 25,
+        "city": "Paris"
+    },
+    {
+        "name": "Seinfeld",
+        "age" : 45,
+        "city": "New York"
+    }
+]
+
+print(extract(list_of_dict))
 # Challenge 9: Write a function that accepts a list of words and returns a list of the words with their first letter capitalized.
 # Use list comprehension to achieve this.
+
+print("-----------------------9-----------------------")
+
 def func_capitalize(filter_words):
     split_sentence = filter_words.split()
     #result_capi = [words.capitalize() for words in split_sentence]
@@ -145,6 +235,7 @@ give_you_words = input("inter you words hier in small letter: ")
 print(func_capitalize(give_you_words))
 # Challenge 10: Write a function that returns the common elements between two lists.
 # Use list comprehension and the "in" operator to find common elements.
+print("-----------------------10-----------------------")
 
 def func_common_ele(element1, element2):
     result_ele = [element for element in element1 if element in element2]
