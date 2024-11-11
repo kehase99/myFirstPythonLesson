@@ -145,39 +145,58 @@ print(merge_dictionaries(first_dict_ch4, second_dict_ch4))
 #   a) Use a `for` loop to print the first 20 Fibonacci numbers.
 
 def fibonacci(n):
-    fibonacci_result = []
-    result = fibonacci_result
-    for i in range(1, 20):
-        if n[i] == 1:
-            fibonacci_result.append(f"F{n[i]}: {n[i]}")
-        elif n[i] > 1:
-            fibonacci_result.append(f"F{n[i]}: {(n[i-2] + n[i-1])}")
-        else:
-            return False
-    return result
+    
+    if n in {0, 1}:
+        return n
+    return fibonacci(n-1) + fibonacci(n-2)
+    
+
+print([fibonacci(n) for n in range(20)])
+#num = [number for number in range(20)]
+#print(fibonacci(num))
+# 6. Define a function `matrix_transpose` that takes a 2D list (matrix) and returns its transpose.
+#    a) The function should work for any matrix size.
+
+def matrix_transpose(tr_m):
+    mtr_result = []
+    tr_matrix = zip(*tr_m)
+    for row in tr_matrix:
+        mtr_result.append(row)
+    return mtr_result
     
 
 
 
 
+matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
 
-list_of_fibonacci = []
-for i in range(0, 20):
-    list_of_fibonacci.append(i)
+print(matrix_transpose(matrix))
 
-print(fibonacci(list_of_fibonacci))
 
-#print(list_of_fibonacci[4-2])
-
-# 6. Define a function `matrix_transpose` that takes a 2D list (matrix) and returns its transpose.
-#    a) The function should work for any matrix size.
 
 # 7. Write a function `analyze_text` that takes a string and returns:
 #    a) The number of words in the string.
 #    b) The number of unique words.
 #    c) A dictionary of word frequencies.
 #    d) The longest word in the string.
+from collections import Counter
+def analyze_text(text_ana):
+    list_of_word = text_ana.split()
+    num_words = len(list_of_word)
 
+    num_unique_words = len(set(list_of_word))
+    count_words = Counter(list_of_word)
+
+
+    return F"number Of words: {num_words}\n number Of unique words: {num_unique_words}\ {count_words}"
+    
+    #print(text_ana.split())
+    
+
+
+my_string = "I am a student of a Full stack developer"
+#analyze_text(my_string)
+print(analyze_text(my_string))
 # 8. Define a function `group_by_length` that takes a list of strings and returns a dictionary where:
 #    a) The keys are string lengths.
 #    b) The values are lists of strings with that length.
