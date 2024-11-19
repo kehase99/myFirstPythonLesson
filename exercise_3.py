@@ -220,6 +220,30 @@ print(analyze_text(my_string))
 # 14. Define a function `write_even_numbers` that writes only the even numbers from a list into a text file.
 #     a) Ensure that the file is created and written to safely.
 
+def write_even_numbers(num: list[int]):
+    result_num = []
+    for number in num:
+        if number % 2 == 0:
+            result_num.append(number)
+    return result_num
+    
+
+
+#with open('even-number.txt', 'w') as file: file.write(str(number))
+list_num = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+print(write_even_numbers(list_num))
+
+def write_even_numbers(some_filename: str, some_numbers: list) -> None:
+    with open(some_filename, "w") as file:
+        file.writelines(f"{number}" for number in some_numbers if number % 2 == 0)
+    
+    
+
+
+filename = "list_of_numbers.txt"
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+write_even_numbers(some_filename = filename, some_numbers = numbers)
+
 # 15. Define a function `memoized_fibonacci` that returns the nth Fibonacci number, using memoization to optimize the computation.
 #     a) Ensure the function computes the nth Fibonacci efficiently by storing already computed values.
 

@@ -1,0 +1,7 @@
+I checked the memory profile of different ways given 
+in the answers using the procedure mentioned here. 
+The memory usage is far better when each line is read 
+from the file and processed, as suggested by @DevShark here. 
+Holding all lines in a collection object is not a good idea 
+if memory is a constraint or the file is large. 
+The execution time is similar in both the approaches.
